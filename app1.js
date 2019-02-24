@@ -30,12 +30,6 @@ app.post('/postrequest', function(req,res){
   });
   
 
-app.use(function(req,res){
-  res.status(404);
-  res.render('404');
-});
-
-
 app.get('/getrequest',function(req,res){
     var qParams = [];
     for (var p in req.query){
@@ -48,6 +42,10 @@ app.get('/getrequest',function(req,res){
   });
   
  
+app.use(function(req,res){
+  res.status(404);
+  res.render('404');
+});
 app.use(function(err, req, res, next){
   console.error(err.stack);
   res.type('plain/text');
